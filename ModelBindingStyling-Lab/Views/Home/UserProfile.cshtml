@@ -4,50 +4,64 @@
     ViewData["Title"] = "J. Doe profile page";
 }
 
-<h1>Profile Page</h1>
+<style>
+    body {
+        background: linear-gradient(135deg, #0a2342 0%, #274690 100%);
+    }
+    .profile-card {
+        background-color: #162447;
+        color: #eaf6fb;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(10,35,66,0.15);
+        padding: 2rem 2.5rem 2rem 2.5rem;
+        margin: 2rem auto;
+        max-width: 700px;
+    }
+    .profile-card h1, .profile-card h4 {
+        color: #a7c7e7;
+        font-weight: 700;
+    }
+    .profile-card hr {
+        border-top: 2px solid #1f4068;
+        margin: 1rem 0 2rem 0;
+    }
+    .profile-card dt {
+        color: #a7c7e7;
+        font-weight: 500;
+    }
+    .profile-card dd {
+        color: #eaf6fb;
+    }
+    .profile-card ul {
+        padding-left: 1.2rem;
+    }
+    .profile-card li {
+        color: #a7c7e7;
+        margin-bottom: 0.2rem;
+    }
+</style>
 
-<div>
-    <h4>UserProfile</h4>
+<div class="profile-card">
+    <div class="container d-flex flex-column align-items-center">
+        <img src="@Model.ImageUrl" alt="profile picture" class="mb-3" />
+        <h4 class="text-center">Profile</h4>
+    </div>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserProfileId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.UserProfileId
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.FullName
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.Email
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.PhoneNumber
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.ImageUrl
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GitHubUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.GitHubUrl
-        </dd>
-        <dt>Skilled Languages</dt>
-        <dd>
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FullName)</dt>
+        <dd class="col-sm-8">@Model.FullName</dd>
+
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-8">@Model.Email</dd>
+
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+        <dd class="col-sm-8">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.GitHubUrl)</dt>
+        <dd class="col-sm-8">@Model.GitHubUrl</dd>
+
+        <dt class="col-sm-4">Skilled Languages</dt>
+        <dd class="col-sm-8">
             <ul>
                 @foreach(string languageSkill in Model.SkilledLanguages)
                 {
