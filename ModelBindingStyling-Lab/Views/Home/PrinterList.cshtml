@@ -4,48 +4,62 @@
     ViewData["Title"] = "Printer List";
 }
 
-<h1>PrinterList</h1>
+<style>
+    .printer-table {
+        background-color: #162447;
+        color: #eaf6fb;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(10,35,66,0.15);
+        overflow: hidden;
+    }
+    .printer-table th {
+        background-color: #1f4068;
+        color: #a7c7e7;
+        border: none;
+    }
+    .printer-table td {
+        background-color: #162447;
+        color: #eaf6fb;
+        border: none;
+    }
+    .printer-table tbody tr:hover {
+        background-color: #274690;
+    }
+    .printer-image {
+        max-width: 200px;
+    }
+    h1 {
+        color: #a7c7e7;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+</style>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SKU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BuildVolume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrinterImage)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SKU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BuildVolume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrinterImage)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <h1 class="text-center">3D Printer List</h1>
+        <table class="table printer-table table-hover table-borderless align-middle">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.SKU)</th>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    <th>@Html.DisplayNameFor(model => model.BuildVolume)</th>
+                    <th>@Html.DisplayNameFor(model => model.PrinterImage)</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SKU)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BuildVolume)</td>
+                    <td><img src="@item.PrinterImage" alt="image of printer" class="printer-image"/></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
